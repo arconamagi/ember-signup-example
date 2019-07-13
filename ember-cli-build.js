@@ -1,10 +1,45 @@
 'use strict';
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
+const postCssAutoprefixer = require('autoprefixer');
+const postCssEasyImport = require('postcss-easy-import');
+const postCssNested = require('postcss-nested');
 
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
     // Add options here
+    postcssOptions: {
+      compile: {
+        enabled: true,
+        extension: 'css',
+        plugins: [{
+            module: postCssEasyImport,
+            options: {
+              extensions: ['.css']
+            }
+          },
+          {
+            module: postCssNested
+          },
+          {
+            module: postCssAutoprefixer,
+            options: {
+              flexbox: 'no-2009'
+            }
+          }
+        ]
+      },
+      filter: {
+        enabled: false
+      }
+    },
+    stylelint: {
+      linterConfig: {
+        configFile: '.stylelintrc',
+        ignorePath: '.stylelintignore',
+        syntax: 'css'
+      }
+    },
   });
 
   // Use `app.import` to add additional libraries to the generated
