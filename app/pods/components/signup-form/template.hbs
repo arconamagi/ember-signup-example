@@ -1,0 +1,85 @@
+<div class="row align-items-center justify-content-center">
+  <div class="col-sm-9 signup-card">
+
+    {{#if this.isSignupStep}}
+
+      <h1>Sign up</h1>
+
+      <div class="row justify-content-center">
+        <div class="form-container">
+          {{#if this.formError}}
+            {{#bs-alert type="danger" class="qa-form-errors" dismissible=false}}
+              {{this.formError}}
+            {{/bs-alert}}
+          {{/if}}
+
+          {{#custom-bs-form model=model
+                            showAllValidations=this.showAllValidations
+                            onChange=(action "cleanFieldError")
+                            onSubmit=(action "submit") as |form|}}
+            {{form.element property="email"
+                           autocomplete="email"
+                           label="Email"
+                           placeholder="Email"
+                           controlType="email"
+                           title="Please enter your email"
+                           class="qa-email"
+                           customError=this.errors.email.message
+                           disabled=form.isSubmitting}}
+
+            {{#form.element property="username" autocomplete="off"
+                            showValidationOn="input"
+                            label="Choose username"
+                            placeholder="Choose username"
+                            title="Please choose your username"
+                            class="qa-username"
+                            customError=this.errors.username.message
+                            disabled=form.isSubmitting as |el|}}
+              {{el.control class=(if model.validations.attrs.username.isValidating "spinner")}}
+            {{/form.element}}
+
+            {{form.element property="password" autocomplete="new-password"
+                           label="Password"
+                           placeholder="Password"
+                           controlType="password"
+                           title="Please set your password"
+                           class="qa-password"
+                           customError=this.errors.password.message
+                           disabled=form.isSubmitting}}
+
+            {{form.element property="confirmPassword" autocomplete="new-password"
+                           label="Repeat your password"
+                           placeholder="Repeat your password"
+                           controlType="password"
+                           title="Please repeat your password"
+                           class="qa-confirm-password"
+                           disabled=form.isSubmitting}}
+
+            {{#bs-button defaultText=""
+                         buttonType="submit"
+                         class="btn-lg qa-btn-submit"
+                         type=(if form.isRejected "danger" "primary")}}
+              Sign up {{#if form.isSubmitting}}<span class="spinner-border"></span>{{/if}}
+            {{/bs-button}}
+
+          {{/custom-bs-form}}
+        </div>
+      </div>
+
+    {{else}}
+
+      <h1>Registration Successful</h1>
+
+      <div class="form-container">
+        <div class="row justify-content-center">
+          You've successfully registered as&nbsp;<b>{{model.username}}</b>.
+        </div>
+        <div class="row justify-content-center">
+          To continue, please&nbsp;{{#link-to "index"}}click here.{{/link-to}}
+        </div>
+      </div>
+
+    {{/if}}
+
+  </div>
+</div>

@@ -4,6 +4,7 @@
         "declaration-no-important": [true, {"severity": "warning"}],
         "no-duplicate-selectors": true,
         "no-missing-end-of-source-newline": true,
-        "number-leading-zero": "never"
+        "number-leading-zero": "never",
+        "string-quotes": "single"
     }
 }

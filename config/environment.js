@@ -1,9 +1,9 @@
 'use strict';
 
-module.exports = function(environment) {
+module.exports = function (environment) {
   let ENV = {
-    modulePrefix: 'signup',
-    podModulePrefix: 'signup/pods',
+    modulePrefix: 'ember-signup-example',
+    podModulePrefix: 'ember-signup-example/pods',
     environment,
     rootURL: '/',
     locationType: 'auto',

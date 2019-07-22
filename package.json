@@ -1,15 +1,10 @@
 {
-  "name": "signup",
-  "version": "0.0.0",
-  "private": true,
-  "description": "Small description for signup goes here",
+  "name": "ember-signup-example",
+  "version": "0.9.0",
+  "description": "An example of Sign Up page made with Ember.js",
   "repository": "",
   "license": "MIT",
-  "author": "",
-  "directories": {
-    "doc": "doc",
-    "test": "tests"
-  },
+  "author": "Dmitriy Labuzov <arconamagi@gmail.com>",
   "scripts": {
     "build": "ember build",
     "lint": "npm run lint:js && npm run lint:hbs && npm run lint:css",
@@ -20,11 +15,12 @@
     "test": "ember test"
   },
   "devDependencies": {
-    "@ember/jquery": "^0.6.0",
     "@ember/optional-features": "^0.7.0",
     "autoprefixer": "^9.6.1",
+    "bootstrap": "^4.3.1",
     "broccoli-asset-rev": "^3.0.0",
-    "ember-ajax": "^5.0.0",
+    "ember-bootstrap": "^3.0.0-rc.1",
+    "ember-bootstrap-cp-validations": "^1.0.0",
     "ember-cli": "~3.10.1",
     "ember-cli-app-version": "^3.2.0",
     "ember-cli-babel": "^7.7.3",
@@ -40,14 +36,13 @@
     "ember-cli-uglify": "^2.1.0",
     "ember-component-css": "^0.7.4",
     "ember-cp-validations": "^4.0.0-beta.9",
-    "ember-data": "~3.10.0",
     "ember-export-application-global": "^2.0.0",
+    "ember-fetch": "^6.7.0",
     "ember-load-initializers": "^2.0.0",
     "ember-maybe-import-regenerator": "^0.1.6",
     "ember-qunit": "^4.4.1",
     "ember-resolver": "^5.0.1",
     "ember-source": "~3.10.0",
-    "ember-welcome-page": "^4.0.0",
     "eslint-plugin-ember": "^6.2.0",
     "eslint-plugin-node": "^9.0.1",
     "loader.js": "^4.7.0",
@@ -59,5 +54,6 @@
   },
   "engines": {
     "node": "8.* || >= 10.*"
-  }
+  },
+  "dependencies": {}
 }

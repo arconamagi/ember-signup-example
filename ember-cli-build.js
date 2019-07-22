@@ -7,7 +7,9 @@ const postCssNested = require('postcss-nested');
 
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
-    // Add options here
+    // 'ember-cli-babel': {
+    //   includePolyfill: true
+    // },
     postcssOptions: {
       compile: {
         enabled: true,
@@ -33,6 +35,7 @@ module.exports = function(defaults) {
         enabled: false
       }
     },
+
     stylelint: {
       linterConfig: {
         configFile: '.stylelintrc',
@@ -40,6 +43,12 @@ module.exports = function(defaults) {
         syntax: 'css'
       }
     },
+
+    'ember-bootstrap': {
+      'bootstrapVersion': 4,
+      'importBootstrapFont': false,
+      'importBootstrapCSS': true
+    }
   });
 
   // Use `app.import` to add additional libraries to the generated

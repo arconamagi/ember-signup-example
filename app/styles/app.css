@@ -1,1 +1,9 @@
 @import 'pod-styles.css';
+
+.page-center {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
